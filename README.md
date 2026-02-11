@@ -18,6 +18,14 @@ The system design(pipeline) can be found in `algorithm_pipeline.mmd`. (Mermaid p
 - Nvidia GPU
 
 ## Usage
+### Run in local environment
+1. Clone the reposipory.
+2. Prepare the environment:
+```pip install -r requirements.txt```
+3. Run the main script:
+```python main.py --input /PATH/TO/TEST/IMAGE```
+
+### Run via docker
 1. Clone the reposipory.
 2. Build Docker image: 
 ```docker build -t tech-pack-translator .```
