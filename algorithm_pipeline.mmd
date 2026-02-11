@@ -1,0 +1,29 @@
+flowchart TD
+    A[Input Image] --> B[Load & Convert RGB]
+
+    B --> C[Initialize EasyOCR + Draw]
+
+    subgraph OCR
+        C --> D[SAHI: Slice Image]
+        D --> E[For Each Tile]
+        E --> F[EasyOCR: Detect Text]
+        F --> G[Collect Global Detections]
+    end
+
+    G --> H{Valid Text?}
+
+    H -->|No| I[Skip]
+    H -->|Yes| J[Translate with Phi-4]
+
+    J --> K[Erase Original Text]
+    K --> L[Load Font]
+    L --> M[Draw Translated Text]
+    
+    M --> N[Save Translated Image]
+    M --> O[Save Translations to TXT]
+
+    N --> P[End]
+    O --> P
+
+    style A fill:#e6f3ff
+    style P fill:#d4edda
